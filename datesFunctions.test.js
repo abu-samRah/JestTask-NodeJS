@@ -81,49 +81,49 @@ describe('Testing fromFormat function', () => {
 describe('Testing format function', () => {
     const format = dates.format;
     test('Should return a date formatted string when passing valid date object', () => {
-        const expected = "01-26/2021"
+        const expected = "01-27/2021"
         const result = format(new Date(), "MM-DD/YYYY");
         expect(result).toEqual(expected);
     });
 
     test('Should return a date formatted string when passing valid date object', () => {
-        const expected = "Jan-26/2021"
+        const expected = "Jan-27/2021"
         const result = format(new Date(), "MMM-D/YYYY");
         expect(result).toEqual(expected);
     });
 
     test('Should return a date formatted string when passing valid date object', () => {
-        const expected = "2021-26/January"
+        const expected = "2021-27/January"
         const result = format(new Date(), "YYYY-D/MMMM");
         expect(result).toEqual(expected);
     });
 
     test('Should return a date formatted string when passing valid date object', () => {
-        const expected = "26/2021-January"
+        const expected = "27/2021-January"
         const result = format(new Date(), "D/YYYY-MMMM");
         expect(result).toEqual(expected);
     });
 
     test('Should return a date formatted string when passing valid date object', () => {
-        const expected = "26/21-January"
+        const expected = "27/21-January"
         const result = format(new Date(), "D/YY-MMMM");
         expect(result).toEqual(expected);
     });
 
     test('Should return a date formatted string when passing valid date object', () => {
-        const expected = "21/26/-January"
+        const expected = "21/27/-January"
         const result = format(new Date(), "YY/D/-MMMM");
         expect(result).toEqual(expected);
     });
 
     test('Should return a date formatted string when passing valid date object', () => {
-        const expected = "HI: 21/26/-January"
+        const expected = "HI: 21/27/-January"
         const result = format(new Date(), "HI: YY/D/-MMMM");
         expect(result).toEqual(expected);
     });
 
     test('Should return a date formatted string when passing valid date object', () => {
-        const expected = "2021/26/-January"
+        const expected = "2021/27/-January"
         const result = format(new Date(), "Y/D/-MMMM");
         expect(result).toEqual(expected);
     });

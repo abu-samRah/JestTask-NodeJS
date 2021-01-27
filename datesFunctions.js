@@ -14,10 +14,10 @@ function fromFormat(dateString, dateFormat) {
     }
 
 
-    let startIndex = Math.min(dayStartIndex, monthStartIndex, yearStartIndex);
-    let endIndex = Math.max(dayLastIndex, monthLastIndex, yearLastIndex);
-    let afterSliceDateFormat = dateFormat.slice(0, startIndex) + dateFormat.slice(endIndex + 1, dateFormat.length);
-    let afterSliceDateString = dateString.slice(0, startIndex) + dateString.slice(endIndex + 4, dateString.length);
+    const startIndex = Math.min(dayStartIndex, monthStartIndex, yearStartIndex);
+    const endIndex = Math.max(dayLastIndex, monthLastIndex, yearLastIndex);
+    const afterSliceDateFormat = dateFormat.slice(0, startIndex) + dateFormat.slice(endIndex + 1, dateFormat.length);
+    const afterSliceDateString = dateString.slice(0, startIndex) + dateString.slice(endIndex + 4, dateString.length);
 
     finalDate = {}
     finalDate["year"] = (dateString.slice(yearStartIndex, yearLastIndex + 4));
@@ -75,9 +75,9 @@ function format(dateObject, outputFormat) {
     const monthsFullName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const monthsAbbrevName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    let day = dateObject.getDate();
-    let month = dateObject.getMonth();
-    let year = dateObject.getFullYear();
+    const day = dateObject.getDate();
+    const month = dateObject.getMonth();
+    const year = dateObject.getFullYear();
 
     const dayStartIndex = outputFormat.toLowerCase().indexOf("d");
     const dayLastIndex = outputFormat.toLowerCase().lastIndexOf("d");
@@ -93,13 +93,13 @@ function format(dateObject, outputFormat) {
     }
 
     const dayIndexDiff = dayLastIndex - dayStartIndex;
-    let dayFinal = dayIndexDiff == 0 || (dayIndexDiff == 1 && day > 9) ? day : (dayIndexDiff == 1 && day < 10 ? "0" + day : "Wrong Day");
+    const dayFinal = dayIndexDiff == 0 || (dayIndexDiff == 1 && day > 9) ? day : (dayIndexDiff == 1 && day < 10 ? "0" + day : "Wrong Day");
 
     const monthIndexDiff = monthLastIndex - monthStartIndex;
-    let monthFinal = monthIndexDiff == 0 || (monthIndexDiff == 1 && month > 9) ? month + 1 : (monthIndexDiff == 1 && month < 10 ? "0" + (month + 1) : (monthIndexDiff == 2 ? monthsAbbrevName[month] : (monthIndexDiff == 3 ? monthsFullName[month] : "Wrong Month")));
+    const monthFinal = monthIndexDiff == 0 || (monthIndexDiff == 1 && month > 9) ? month + 1 : (monthIndexDiff == 1 && month < 10 ? "0" + (month + 1) : (monthIndexDiff == 2 ? monthsAbbrevName[month] : (monthIndexDiff == 3 ? monthsFullName[month] : "Wrong Month")));
 
     const yearIndexDiff = yearLastIndex - yearStartIndex;
-    let yearFinal = yearIndexDiff == 0 || (yearIndexDiff == 3) ? year : (yearIndexDiff == 1 ? year % 100 : "Wrong Year");
+    const yearFinal = yearIndexDiff == 0 || (yearIndexDiff == 3) ? year : (yearIndexDiff == 1 ? year % 100 : "Wrong Year");
 
     const errormessage = dayFinal == "Wrong Day" ? dayFinal : (monthFinal == "Wrong Month" ? monthFinal : (yearFinal == "Wrong Year" ? "Wrong Year" : "No Errors"));
     if (errormessage != "No Errors") {
